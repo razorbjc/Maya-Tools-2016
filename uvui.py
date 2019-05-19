@@ -123,22 +123,25 @@ class uvui(object):
         self.udim_max()
 
     def grid(self, *args):
+        init_sel = cmds.ls(sl=True)
+        shellarray = self.get_shell_array()
         start_udim = self.get_udim()
-        cmds.ConvertSelectionToFaces()
-        sel = cmds.ls(sl=True)
-        cmds.ConvertSelectionToUVs()
-        mel.eval('polySelectBorderShell 0;')
-        cmds.ShrinkPolygonSelectionRegion()
-        if len(cmds.ls(sl=True))==0:
-            cmds.error("Shell too simple. Use 'Unfold' instead")
-        cmds.ConvertSelectionToEdges()
-        cmds.InvertSelection()
-        cutedges = cmds.ls(sl=True)
-        cmds.polyForceUV(sel, uni=True)
-        cmds.select(cutedges)
-        cmds.InvertSelection()
-        cmds.polyMapSewMove(cmds.ls(sl=True), nf=10, lps=0, ch=1)
-        cmds.select(sel)
+        for i in shellarray:
+            cmds.select(i)
+            cmds.ConvertSelectionToUVs()
+            mel.eval('polySelectBorderShell 0;')
+            cmds.ShrinkPolygonSelectionRegion()
+            if len(cmds.ls(sl=True))==0:
+                continue
+            cmds.ConvertSelectionToEdges()
+            cmds.InvertSelection()
+            cutedges = cmds.ls(sl=True)
+            cmds.polyForceUV(i, uni=True)
+            cmds.select(cutedges)
+            cmds.InvertSelection()
+            cmds.polyMapSewMove(cmds.ls(sl=True), nf=10, lps=0, ch=1)
+
+        cmds.select(init_sel)
         mel.eval('polySelectBorderShell 0;')
         self.udim_center()
         self.udim_max()
