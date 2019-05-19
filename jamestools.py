@@ -1,7 +1,4 @@
 #!/usr/bin/env python2.7
-"""
-James Tools compatible with Maya 2016
-"""
 import maya.cmds as cmds
 import maya.mel as mel
 import jc_smartcombine
@@ -96,7 +93,7 @@ def assetToolsGUI():
     cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0),
                                                  (tabs, 'bottom', 0), (tabs, 'right', 0)))
     allowedAreas = ['right','left']
-    cmds.dockControl("asset_tools_Collection_dock",area='left',
+    cmds.dockControl("asset_tools_Collection_dock",area='right',
                      content=dock_ui,
                      allowedArea=allowedAreas,
                      label='James Tools',
@@ -169,22 +166,24 @@ def assetToolsGUI():
                      c="import jc_camcliptoggle\njc_camcliptoggle.camcliptoggle()")
     cmds.button(label="CamClip Toggle", w=bw, h=bh, command=camcliptoggle)
     cmds.setParent('..')
+    cmds.setParent('..')
 
-    cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="commandButton.png", iol="selNth",
-                     c="import jc_camcliptoggle\njc_camcliptoggle.camcliptoggle()")
+    maya_column = cmds.columnLayout()
+    cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=maya_column)
+    cmds.shelfButton(i="commandButton.png", iol="selNth", stp='mel',
+                     c='polySelectEdgesEveryN "edgeRing" 2;')
     cmds.button(label="Select Nth Edge", w=bw, h=bh, command=polysel_every_n)
     cmds.setParent('..')
 
-    cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="commandButton.png", iol="mirCut",
-                     c="import jc_camcliptoggle\njc_camcliptoggle.camcliptoggle()")
+    cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=maya_column)
+    cmds.shelfButton(i="commandButton.png", iol="mirCut", stp='mel',
+                     c='polyMirrorCut 1 1 0.001;')
     cmds.button(label="polyMirrorCut", w=bw, h=bh, command=polymirrorcut)
     cmds.setParent('..')
     cmds.setParent('..')
 #######################################################################
 
-    cmds.tabLayout(tabs, edit=True, tabLabel=((main_column, 'Custom')))
+    cmds.tabLayout(tabs, edit=True, tabLabel=((main_column, 'Custom'),(maya_column, 'Maya')))
 #######################################################################
 
 if __name__ == '__main__':
