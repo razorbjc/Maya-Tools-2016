@@ -100,69 +100,70 @@ def assetToolsGUI():
                      visible=True)
     bh = 24
     bw = 140
+    ic = 34
 
 #######################################################################
     main_column = cmds.columnLayout()
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="uvui_icon.png", w=32, h=32, c="import jc_uvui\njc_uvui.uvui().launch()")
+    cmds.shelfButton(i="uvui_icon.png", w=ic, h=ic, c="import jc_uvui\njc_uvui.uvui().launch()")
     cmds.button(label="UV UI", w=bw, h=bh, c=uvui)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="facecut_icon.png", w=32, h=32, c="import jc_facecut\njc_facecut.facecut()")
+    cmds.shelfButton(i="facecut_icon.png", w=ic, h=ic, c="import jc_facecut\njc_facecut.facecut()")
     cmds.button(l='FaceCut', w=bw, h=bh, c=facecut)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="combine_icon.png", w=32, h=32, c="import jc_smartcombine\njc_smartcombine.smartcombine()")
+    cmds.shelfButton(i="combine_icon.png", w=ic, h=ic, c="import jc_smartcombine\njc_smartcombine.smartcombine()")
     cmds.button(label="Smart Combine", w=bw, h=bh, c=smartcombine)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="duplicate_icon.png", w=32, h=32, c="import jc_smartextract\njc_smartextract.smartduplicate()")
+    cmds.shelfButton(i="duplicate_icon.png", w=ic, h=ic, c="import jc_smartextract\njc_smartextract.smartduplicate()")
     cmds.button(label="Smart Duplicate", w=bw, h=bh, c=smartduplicate)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="extract_icon.png", w=32, h=32, c="import jc_smartextract\njc_smartextract.smartextract()")
+    cmds.shelfButton(i="extract_icon.png", w=ic, h=ic, c="import jc_smartextract\njc_smartextract.smartextract()")
     cmds.button(label="Smart Extract", w=bw, h=bh, c=smartextract)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="curvetube_icon.png", w=32, h=32, c="import jc_curvetube\njc_curvetube.curvetube()")
+    cmds.shelfButton(i="curvetube_icon.png", w=ic, h=ic, c="import jc_curvetube\njc_curvetube.curvetube()")
     cmds.button(label="CurveTube", w=bw, h=bh, c=curvetube)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="unsmooth_icon.png",w=32, h=32, c="import jc_unsmooth\njc_unsmooth.unsmooth()")
+    cmds.shelfButton(i="unsmooth_icon.png",w=ic, h=ic, c="import jc_unsmooth\njc_unsmooth.unsmooth()")
     cmds.button(label="Unsmooth", w=bw, h=bh, c=unsmooth)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="replace_icon.png",w=32, h=32, c="import jc_replacetopo\njc_replacetopo.replacetopo().launch()")
+    cmds.shelfButton(i="replace_icon.png",w=ic, h=ic, c="import jc_replacetopo\njc_replacetopo.replacetopo().launch()")
     cmds.button(label="Replace Topology", w=bw, h=bh, c=replacetopo)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="nameSpace_icon.png", w=32, h=32,
+    cmds.shelfButton(i="nameSpace_icon.png", w=ic, h=ic,
                      c="import jc_remove_namespaces\njc_remove_namespaces.remove_namespaces()")
     cmds.button(label="Remove Namespaces", w=bw, h=bh, c=remove_namespaces)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="dualTog_icon.png", w=32, h=32, c=dualtoggle,
+    cmds.shelfButton(i="dualTog_icon.png", w=ic, h=ic, c=dualtoggle,
                      doubleClickCommand="import jc_dualtoggle\njc_dualtoggle.jc_dualtoggle_off()")
     cmds.button(label="Dual Toggle", w=bw, h=bh, c=dualtoggle)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="camTog_icon.png", w=32, h=32,
+    cmds.shelfButton(i="camTog_icon.png", w=ic, h=ic,
                      c="import jc_imageplanetoggle\njc_imageplanetoggle.imageplanetoggle()")
     cmds.button(label="Imageplane Toggle", w=bw, h=bh, command=imageplanetoggle)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="clipToggle_icon.png", w=32, h=32,
+    cmds.shelfButton(i="clipToggle_icon.png", w=ic, h=ic,
                      c="import jc_camcliptoggle\njc_camcliptoggle.camcliptoggle()")
     cmds.button(label="CamClip Toggle", w=bw, h=bh, command=camcliptoggle)
     cmds.setParent('..')
@@ -170,13 +171,13 @@ def assetToolsGUI():
 
     maya_column = cmds.columnLayout()
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=maya_column)
-    cmds.shelfButton(i="commandButton.png", iol="selNth", stp='mel',
+    cmds.shelfButton(i="commandButton.png", w=ic, h=ic, iol="selNth", stp='mel',
                      c='polySelectEdgesEveryN "edgeRing" 2;')
     cmds.button(label="Select Nth Edge", w=bw, h=bh, command=polysel_every_n)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=maya_column)
-    cmds.shelfButton(i="commandButton.png", iol="mirCut", stp='mel',
+    cmds.shelfButton(i="commandButton.png", w=ic, h=ic, iol="mirCut", stp='mel',
                      c='polyMirrorCut 1 1 0.001;')
     cmds.button(label="polyMirrorCut", w=bw, h=bh, command=polymirrorcut)
     cmds.setParent('..')
