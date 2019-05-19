@@ -1,4 +1,7 @@
 #!/usr/bin/env python2.7
+"""
+James Tools compatible with Maya 2016
+"""
 import maya.cmds as cmds
 import maya.mel as mel
 import jc_smartcombine
