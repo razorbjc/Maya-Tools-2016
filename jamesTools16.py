@@ -1,66 +1,72 @@
 #!/usr/bin/env python2.7
+"""
+For Maya 2016
+Custom tools by James
+__author__: James Chan
+"""
+
 import maya.cmds as cmds
 import maya.mel as mel
-import jc_smartcombine
-import jc_uvui
-import jc_smartextract
-import jc_facecut
-import jc_unsmooth
-import jc_curvetube
-import jc_replacetopo
-import jc_remove_namespaces
-import jc_imageplanetoggle
-import jc_dualtoggle
-import jc_camcliptoggle
+import smartCombine
+import uvui
+import smartExtract
+import faceCut
+import unsmooth
+import curveTube
+import replaceTopo
+import removeNamespaces
+import imagePlaneToggle
+import dualToggle
+import camClipToggle
 
 
 def smartcombine(arg=None):
-    reload(jc_smartcombine)
-    jc_smartcombine.smartcombine()
+    reload(smartCombine)
+    smartCombine.smartCombine()
 
 def smartextract(arg=None):
-    reload(jc_smartextract)
-    jc_smartextract.smartextract()
+    reload(smartExtract)
+    smartExtract.smartExtract()
 
 def smartduplicate(arg=None):
-    reload(jc_smartextract)
-    jc_smartextract.smartduplicate()
+    reload(smartExtract)
+    smartExtract.smartDuplicate()
 
 def facecut(arg=None):
-    reload(jc_facecut)
-    jc_facecut.facecut()
+    reload(faceCut)
+    faceCut.faceCut()
 
-def uvui(arg=None):
-    reload(jc_uvui)
-    jc_uvui.uvui().launch()
+def uvui_method(arg=None):
+    reload(uvui)
+    uvui.uvui().launch()
 
-def unsmooth(arg=None):
-    reload(jc_unsmooth)
-    jc_unsmooth.unsmooth()
+def unsmooth_method(arg=None):
+    reload(unsmooth)
+    unsmooth.unsmooth()
 
 def curvetube(arg=None):
-    reload(jc_curvetube)
-    jc_curvetube.curvetube()
+    reload(curveTube)
+    curveTube.curveTube()
 
 def replacetopo(arg=None):
-    reload(jc_replacetopo)
-    jc_replacetopo.replacetopo().launch()
+    reload(replaceTopo)
+    replaceTopo.replaceTopo().launch()
 
 def remove_namespaces(arg=None):
-    reload(jc_remove_namespaces)
-    jc_remove_namespaces.remove_namespaces()
+    reload(removeNamespaces)
+    removeNamespaces.removeNamespaces()
 
 def imageplanetoggle(arg=None):
-    reload(jc_imageplanetoggle)
-    jc_imageplanetoggle.imageplanetoggle()
+    reload(imagePlaneToggle)
+    imagePlaneToggle.imagePlaneToggle()
 
 def dualtoggle(arg=None):
-    reload(jc_dualtoggle)
-    jc_dualtoggle.dualtoggle_on()
+    reload(dualToggle)
+    dualToggle.dualToggle_on()
 
 def camcliptoggle(arg=None):
-    reload(jc_camcliptoggle)
-    jc_camcliptoggle.camcliptoggle()
+    reload(camClipToggle)
+    camClipToggle.camClipToggle()
 
 def polyretopo(self, *args):
     cmds.polyRetopo()
@@ -105,66 +111,66 @@ def assetToolsGUI():
 #######################################################################
     main_column = cmds.columnLayout()
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="uvui_icon.png", w=ic, h=ic, c="import jc_uvui\njc_uvui.uvui().launch()")
-    cmds.button(label="UV UI", w=bw, h=bh, c=uvui)
+    cmds.shelfButton(i="uvui_icon.png", w=ic, h=ic, c="import uvui\nuvui.uvui().launch()")
+    cmds.button(label="UV UI", w=bw, h=bh, c=uvui_method)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="facecut_icon.png", w=ic, h=ic, c="import jc_facecut\njc_facecut.facecut()")
+    cmds.shelfButton(i="facecut_icon.png", w=ic, h=ic, c="import faceCut\nfaceCut.faceCut()")
     cmds.button(l='FaceCut', w=bw, h=bh, c=facecut)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="combine_icon.png", w=ic, h=ic, c="import jc_smartcombine\njc_smartcombine.smartcombine()")
+    cmds.shelfButton(i="combine_icon.png", w=ic, h=ic, c="import smartCombine\nsmartCombine.smartCombine()")
     cmds.button(label="Smart Combine", w=bw, h=bh, c=smartcombine)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="duplicate_icon.png", w=ic, h=ic, c="import jc_smartextract\njc_smartextract.smartduplicate()")
+    cmds.shelfButton(i="duplicate_icon.png", w=ic, h=ic, c="import smartExtract\nsmartExtract.smartDuplicate()")
     cmds.button(label="Smart Duplicate", w=bw, h=bh, c=smartduplicate)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="extract_icon.png", w=ic, h=ic, c="import jc_smartextract\njc_smartextract.smartextract()")
+    cmds.shelfButton(i="extract_icon.png", w=ic, h=ic, c="import smartExtract\nsmartExtract.smartExtract()")
     cmds.button(label="Smart Extract", w=bw, h=bh, c=smartextract)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="curvetube_icon.png", w=ic, h=ic, c="import jc_curvetube\njc_curvetube.curvetube()")
+    cmds.shelfButton(i="curvetube_icon.png", w=ic, h=ic, c="import curveTube\ncurveTube.curveTube()")
     cmds.button(label="CurveTube", w=bw, h=bh, c=curvetube)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="unsmooth_icon.png",w=ic, h=ic, c="import jc_unsmooth\njc_unsmooth.unsmooth()")
-    cmds.button(label="Unsmooth", w=bw, h=bh, c=unsmooth)
+    cmds.shelfButton(i="unsmooth_icon.png",w=ic, h=ic, c="import unsmooth\nunsmooth.unsmooth()")
+    cmds.button(label="Unsmooth", w=bw, h=bh, c=unsmooth_method)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="replace_icon.png",w=ic, h=ic, c="import jc_replacetopo\njc_replacetopo.replacetopo().launch()")
+    cmds.shelfButton(i="replace_icon.png",w=ic, h=ic, c="import replaceTopo\nreplaceTopo.replaceTopo().launch()")
     cmds.button(label="Replace Topology", w=bw, h=bh, c=replacetopo)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
     cmds.shelfButton(i="nameSpace_icon.png", w=ic, h=ic,
-                     c="import jc_remove_namespaces\njc_remove_namespaces.remove_namespaces()")
+                     c="import removeNamespaces\nremoveNamespaces.removeNamespaces()")
     cmds.button(label="Remove Namespaces", w=bw, h=bh, c=remove_namespaces)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
     cmds.shelfButton(i="dualTog_icon.png", w=ic, h=ic, c=dualtoggle,
-                     doubleClickCommand="import jc_dualtoggle\njc_dualtoggle.jc_dualtoggle_off()")
+                     doubleClickCommand="import dualToggle\ndualToggle.dualToggle_off()")
     cmds.button(label="Dual Toggle", w=bw, h=bh, c=dualtoggle)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
     cmds.shelfButton(i="camTog_icon.png", w=ic, h=ic,
-                     c="import jc_imageplanetoggle\njc_imageplanetoggle.imageplanetoggle()")
+                     c="import imagePlaneToggle\nimagePlaneToggle.imagePlaneToggle()")
     cmds.button(label="Imageplane Toggle", w=bw, h=bh, command=imageplanetoggle)
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
     cmds.shelfButton(i="clipToggle_icon.png", w=ic, h=ic,
-                     c="import jc_camcliptoggle\njc_camcliptoggle.camcliptoggle()")
+                     c="import camClipToggle\ncamClipToggle.camClipToggle()")
     cmds.button(label="CamClip Toggle", w=bw, h=bh, command=camcliptoggle)
     cmds.setParent('..')
     cmds.setParent('..')
