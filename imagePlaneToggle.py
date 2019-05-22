@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 """
+For Maya 2016
 Toggles imageplane visibility of current camera
 May 2019
 __author__: James Chan
@@ -9,7 +10,7 @@ __author__: James Chan
 import maya.cmds as cmds
 
 
-def imageplanetoggle():
+def imagePlaneToggle():
     current_cam = cmds.modelPanel(cmds.getPanel(wf=True), q=True, cam=True)
     current_cam_shape = cmds.listRelatives(current_cam, c=True, f=True)
     imgplanetrans = cmds.listConnections(current_cam_shape)
