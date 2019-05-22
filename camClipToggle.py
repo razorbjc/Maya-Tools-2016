@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 """
+For Maya 2016
 Increases the clipping plane range of all cameras in the scene to
 10cm - 1,000,000cm. Clicking again will toggle all cameras back to default range
 May 2019
@@ -12,7 +13,7 @@ import maya.OpenMaya as OpenMaya
 import maya.OpenMayaUI as OpenMayaUI
 
 
-def camcliptoggle():
+def camClipToggle():
     view = OpenMayaUI.M3dView.active3dView()
     cam = OpenMaya.MDagPath()
     view.getCamera(cam)
