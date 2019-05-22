@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 
 """
-Works with Maya 2018
+Works with Maya 2016
 Creates a UI that allows the user to replace old, frozen geo with the same topology
 An 'Old Mesh' is used as a wrap deformer on 'New Mesh'. Then that 'Old Mesh' blendshapes
 into all the 'Old Targets', leaving a duplicate of 'New Mesh' in that position.
@@ -15,7 +15,7 @@ import maya.mel as mel
 import math
 
 
-class replacetopo(object):
+class replaceTopo(object):
     windowName = "replaceTopo"
 
     def __init__(self):
