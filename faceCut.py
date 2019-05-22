@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 """
+For Maya 2016
 Given a a complete edge loop or enclosure of edges,
 this script will select all faces within the edge perimeter
 
@@ -11,7 +12,7 @@ import maya.cmds as cmds
 import maya.mel as mel
 
 
-def facecut():
+def faceCut():
     edgesel = cmds.ls(sl=True, fl=True)
     objs = cmds.ls(sl=True, o=True)
 
