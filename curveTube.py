@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 
 """
+For Maya 2016
 If given a curve, will produce tube geometry with spans at the curve's CVs
 If given tube geometry, will create a curve with CVs at the center of the edge rings
 May 2019
@@ -11,7 +12,7 @@ import maya.cmds as cmds
 import maya.mel as mel
 
 
-def curvetube():
+def curveTube():
     sel = cmds.ls(sl=True, o=True)
     result_list = []
     result = None
@@ -43,7 +44,7 @@ def curvetube():
 
 
 def curve_to_tube(sel_curve):  # original with nurb circle extrusion
-    resolution = 8
+    resolution = 6
     radius = 1
     orig_loc = cmds.pointPosition(sel_curve+".cv[0]")
     cv_loc = cmds.pointPosition(sel_curve+".cv[1]")
