@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+##!/usr/bin/env python2.7
 """
 For Maya 2016
 Custom tools by James
@@ -99,7 +99,7 @@ def assetToolsGUI():
     cmds.formLayout( form, edit=True, attachForm=((tabs, 'top', 0), (tabs, 'left', 0),
                                                  (tabs, 'bottom', 0), (tabs, 'right', 0)))
     allowedAreas = ['right','left']
-    cmds.dockControl("asset_tools_Collection_dock",area='right',
+    cmds.dockControl("asset_tools_Collection_dock", area='right',
                      content=dock_ui,
                      allowedArea=allowedAreas,
                      label='James Tools',
@@ -157,7 +157,7 @@ def assetToolsGUI():
     cmds.setParent('..')
 
     cmds.rowLayout(numberOfColumns=2, columnAlign1="center", parent=main_column)
-    cmds.shelfButton(i="dualTog_icon.png", w=ic, h=ic, c=dualtoggle,
+    cmds.shelfButton(i="dualTog_icon.png", w=ic, h=ic, c="import dualToggle\ndualToggle.dualToggle_on()",
                      doubleClickCommand="import dualToggle\ndualToggle.dualToggle_off()")
     cmds.button(label="Dual Toggle", w=bw, h=bh, c=dualtoggle)
     cmds.setParent('..')
