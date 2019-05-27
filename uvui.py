@@ -142,10 +142,10 @@ class uvui(object):
         mel.eval('polySelectBorderShell 0;')
         self.udim_center()
         self.udim_max()
-        cmds.select(cmds.ls(sl=True), r=True)
-        cmds.polyMultiLayoutUV(lm=1, l=2, sc=1, psc=2, rbf=0, fr=1, ps=.5)
+        cmds.select(sel, r=True)
         end_udim = self.get_udim()
         cmds.polyEditUV(u=(start_udim[0]-end_udim[0]), v=(start_udim[1]-end_udim[1]))
+        cmds.select(cmds.ls(sl=True), r=True)
 
     def rotate_left(self, *args):
         center = self.get_center()
@@ -296,7 +296,10 @@ class uvui(object):
         cmds.polyEditUV(u=start_udim[0], v=start_udim[1])
 
     def unfold_uv(self, *args):
-        cmds.Unfold3D(cmds.ls(sl=True), u=1, ite=1, p=0, bi=1, tf=1, ms=1024, rs=2)
+        sel = cmds.ls(sl=True)
+        mel.eval('textureWindowSelectConvert 4;')
+        cmds.unfold(i=5000, ss=0.001, gb=0, gmb=0.5, pub=0, ps=0, oa=0, us=False)
+        cmds.select(sel, r=True)
 
     def unfold_u(self, *args):
         cmds.unfold(i=5000, ss=0.001, gb=0, gmb=0.5, pub=0, ps=0, oa=2, us=False)
